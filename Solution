@@ -1,0 +1,32 @@
+
+public class PhoneCombination {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[][] array = {{4,6},{6,8},{7,9},{4,8},{3,9,0},{},{1,7,0},{2,6},{1,3},{2,4}};
+		
+		String phoneNumber = "";
+		permutation(array,1,phoneNumber);
+
+	}
+	
+	public static int permutation(int[][] array, int startIndex,String phoneNumber)
+	{
+		phoneNumber += startIndex;
+		if(phoneNumber.length() == 10 )
+		{
+			System.out.println(phoneNumber);
+			return -1;
+		}
+		int length = array[startIndex].length;
+		
+		for(int i=0;i<length;i++)
+		{
+			
+			permutation(array,array[startIndex][i],phoneNumber);
+		}
+		
+		return 0;
+	}
+
+}
